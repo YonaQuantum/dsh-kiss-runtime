@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "KISS Runtime Output",
+    "description": "Typography for the transcript only: section titles in replies, quiet rail-like tool rows, and the newest turn’s shell calls expanded so commands and output are visible inline. Presentation only; it never changes execution."
+  }
+}

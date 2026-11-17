@@ -1,0 +1,6 @@
+# KISS Runtime output layer. Applied after the brand layer so its transcript
+# typography wins where the two overlap; removing this bundle restores the
+# stock transcript with no other edit.
+- insert:
+    - id: kiss-output
+      name: '@local/kiss-output'

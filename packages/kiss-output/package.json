@@ -1,0 +1,37 @@
+{
+  "name": "@local/kiss-output",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "KISS Runtime output: section titles for replies, quiet tool rows, and the current turn’s shell calls expanded with their commands and output. Presentation only; it changes nothing about how DSH runs tools.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer"
+      ]
+    }
+  },
+  "icon": "./icon.svg",
+  "engines": {
+    "dsh": ">=0.2.2-rc.1"
+  }
+}

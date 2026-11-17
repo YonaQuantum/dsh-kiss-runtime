@@ -1,0 +1,37 @@
+{
+  "name": "@local/kiss-brand",
+  "version": "1.5.3",
+  "private": true,
+  "type": "module",
+  "description": "Appearance layer for KISS Runtime: monochrome accents, serif interface text, a circular portrait and \"Keep It Simple.\" on the home screen, and elapsed-time-only running status.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./assets/app-icon-128.png",
+    "./assets/*": "./assets/*"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "assets/*.png",
+    "docs/*.png",
+    "locale/*.json",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "icon": "./assets/app-icon-128.png"
+}

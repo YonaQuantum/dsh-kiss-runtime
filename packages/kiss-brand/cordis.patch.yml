@@ -1,0 +1,19 @@
+# KISS brand layer, applied after the dsh-web-app bundle.
+#
+# The official sidebar occupants are single-slot registrations, so replacing
+# the brand means turning that row off and taking the same seats here. Removing
+# this bundle restores the official rows with no other edit.
+- id: ui-brand-official
+  disabled: true
+
+# Text follows the brand into a serif; code and terminal keep their own
+# monospace stacks through the theme's separate font roles. The base size is one
+# step up from DSH's 14px so the Chinese serif has more room to breathe.
+- id: ui-theme
+  config:
+    fontSize: 15
+    textFontFamily: 'New York, Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Baskerville, Georgia, Times New Roman, Songti SC, STSong, Noto Serif CJK SC, Source Han Serif SC, SimSun, serif'
+
+- insert:
+    - id: kiss-brand
+      name: '@local/kiss-brand'
