@@ -28,7 +28,7 @@
 ### 方式 A：克隆后按本地目录安装（推荐）
 
 ```sh
-git clone https://github.com/CrotAA/dsh-kiss-runtime.git
+git clone https://github.com/YonaQuantum/dsh-kiss-runtime.git
 ```
 
 1. Plugins → **Add plugin**，填入绝对路径（把 `<clone>` 换成实际路径）：
@@ -44,11 +44,11 @@ git clone https://github.com/CrotAA/dsh-kiss-runtime.git
 不克隆，安装时由 pnpm 去拉仓库：
 
 ```
-github:CrotAA/dsh-kiss-runtime#path:packages/kiss-brand
+github:YonaQuantum/dsh-kiss-runtime#path:packages/kiss-brand
 ```
 
 ```
-github:CrotAA/dsh-kiss-runtime#path:packages/kiss-output
+github:YonaQuantum/dsh-kiss-runtime#path:packages/kiss-output
 ```
 
 前提是本机 Git 已经能读这个私有仓库：登录过 `gh auth login`，或配好了 SSH key（pnpm 对 GitHub 会先试 HTTPS，失败再回退 SSH）。没有配置过的，用方式 A 或 C 更省事。
@@ -87,6 +87,6 @@ docs/                  效果截图
 仓库是 **private**。朋友要用，需要把这个仓库加为 collaborator：
 
 - GitHub 仓库页 → **Settings → Collaborators → Add people**，输入对方的 GitHub 用户名；
-- 或让对方把用户名给你，用 `gh api -X PUT repos/CrotAA/dsh-kiss-runtime/collaborators/<用户名>` 添加。
+- 或让对方把用户名给你，用 `gh api -X PUT repos/YonaQuantum/dsh-kiss-runtime/collaborators/<用户名>` 添加。
 
 加完对方才能 clone / 下载 ZIP / 用 Git 地址安装。
