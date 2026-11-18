@@ -1,6 +1,8 @@
 # KISS Runtime for DSH
 
-把 DeepSeek Harness（DSH）Web 客户端换成 **KISS Runtime** 的两个 DSH 插件包：品牌外观层 + 对话排版层。不修改 DSH 安装包，不碰 DSH 源码，只占用官方留出的品牌槽位和对话渲染契约。
+**KISS Runtime** 是给 DeepSeek Harness（DSH）Web 客户端用的两个界面插件：一层换品牌外观，一层改对话排版。
+
+名字里虽然有 "Runtime"，但它**不是一个运行时**：没有后台进程、没有工具、没有执行逻辑，两个包的 Host 半都是空的 `apply()`。所有改动都发生在浏览器页面里——占官方留出的品牌槽位、注入一段 CSS、改写页面标题和 favicon、给对话节点打标记。它不接管会话，也不改变 DSH 怎么跑工具。
 
 ![浅色模式](docs/preview.png)
 
@@ -19,7 +21,7 @@
 
 - DSH 0.2.2-rc.3（Desktop 版）实测可用；`kiss-output` 声明了 `engines.dsh >= 0.2.2-rc.1`。
 - 不需要单独装 pnpm：Desktop 版自带应用级包管理器。
-- 需要能访问这个私有仓库（见[访问权限](#访问权限)）。
+- 仓库是公开的，clone、下载 ZIP、用 Git 地址安装都不需要授权。
 
 ## 安装
 
@@ -51,13 +53,11 @@ github:YonaQuantum/dsh-kiss-runtime#path:packages/kiss-brand
 github:YonaQuantum/dsh-kiss-runtime#path:packages/kiss-output
 ```
 
-前提是本机 Git 已经能读这个私有仓库：登录过 `gh auth login`，或配好了 SSH key（pnpm 对 GitHub 会先试 HTTPS，失败再回退 SSH）。没有配置过的，用方式 A 或 C 更省事。
-
-Git 形式安装的插件不支持“检查新版本”，升级时先卸载再按同样地址重装。
+公开仓库走 HTTPS 即可，不需要 token。Git 形式安装的插件不支持“检查新版本”，升级时先卸载再按同样地址重装。
 
 ### 方式 C：下载 ZIP 后按本地目录安装
 
-在 GitHub 页面点 **Code → Download ZIP**（需要登录且对该仓库有权限），解压后按方式 A 的第 1 步填本地路径。适合不想配 Git 凭据的朋友。
+在 GitHub 页面点 **Code → Download ZIP**，解压后按方式 A 的第 1 步填本地路径。
 
 ## 卸载与恢复
 
@@ -82,11 +82,6 @@ docs/                  效果截图
 
 包名里的 `@local` 只是本地占位，不需要发布到 npm，不影响安装。
 
-## 访问权限
+## 许可证
 
-仓库是 **private**。朋友要用，需要把这个仓库加为 collaborator：
-
-- GitHub 仓库页 → **Settings → Collaborators → Add people**，输入对方的 GitHub 用户名；
-- 或让对方把用户名给你，用 `gh api -X PUT repos/YonaQuantum/dsh-kiss-runtime/collaborators/<用户名>` 添加。
-
-加完对方才能 clone / 下载 ZIP / 用 Git 地址安装。
+[MIT](LICENSE)
